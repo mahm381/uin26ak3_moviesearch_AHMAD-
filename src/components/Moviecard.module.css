@@ -1,0 +1,66 @@
+/* CSS-modul for MovieCard-komponenten */
+/* Basis-stiler for filmkortet med mørk bakgrunn og subtil kant */
+.card {
+  cursor: pointer; /* Gjør kortet klikkbart */
+  background: #111; /* Mørk bakgrunn */
+  border: 1px solid rgba(255,255,255,0.07); /* Subtil kant */
+  border-radius: 6px; /* Runde hjørner */
+  overflow: hidden; /* Hindrer overløp */
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease; /* Jenvne animasjoner */
+  outline: none; /* Fjerner standard fokus-outline */
+}
+
+/* Hover-effekter: løfter kortet og endrer kantfarge */
+.card:hover, .card:focus {
+  transform: translateY(-6px) scale(1.02); /* Løfter og skalerer kortet */
+  border-color: #3721a9; /* Rød kant ved interaksjon */
+  box-shadow: 0 12px 40px rgba(230,57,70,0.25); /* Rødaktig skygge */
+}
+
+/* Container for filmplakaten med 2:3 aspektforhold */
+.poster {
+  margin: 0; /* Ingen margin */
+  aspect-ratio: 2 / 3; /* Standard filmplakat-format */
+  overflow: hidden; /* Hindrer overløp */
+  background: #1a1a1a; /* Fallback-bakgrunn */
+}
+
+/* Bilde-stiler for plakaten */
+.poster img {
+  width: 100%; /* Fyller bredden */
+  height: 100%; /* Fyller høyden */
+  object-fit: cover; /* Beholder aspektforhold */
+  display: block; /* Fjerner inline-gap */
+  transition: transform 0.4s ease; /* Zoom-animasjon */
+}
+
+/* Zoom-effekt på bildet ved hover */
+.card:hover .poster img {
+  transform: scale(1.06); /* Lett zoom inn */
+}
+
+/* Informasjons-seksjon under plakaten */
+.info {
+  padding: 0.8rem 1rem; /* Luft rundt teksten */
+  background: #111; /* Samme som kort-bakgrunn */
+}
+
+/* Tittel-stiler med ellipsis for lange titler */
+.title {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.9rem; /* Passende størrelse */
+  font-weight: 500; /* Medium vekt */
+  color: #f0f0f0; /* Lys tekst */
+  margin: 0 0 0.3rem; /* Margin bunn */
+  white-space: nowrap; /* Ingen linjeskift */
+  overflow: hidden; /* Skjuler overløp */
+  text-overflow: ellipsis; /* Legger til "..." */
+}
+
+/* Årstall-stiler - mindre prominent */
+.year {
+  font-family: 'DM Sans', sans-serif; /* Samme skrift */
+  font-size: 0.78rem; /* Mindre størrelse */
+  color: #888; /* Grå farge */
+  font-weight: 300; /* Lett vekt */
+}

@@ -1,0 +1,40 @@
+/* Forsiden tar opp minst hele skjermhøyden minus header */
+.main { min-height: calc(100vh - 68px); }
+
+/* Hero-seksjonen har romslig padding øverst for luftig design */
+.hero {
+  padding: 5rem 2.5rem 3rem;
+  max-width: 900px;
+}
+
+/* Stor display-tittel med Bebas Neue for filmplakat-følelse
+   clamp() gjør fontstørrelsen responsiv etter skjermbredde */
+.heroTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  color: #fff;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* "Finn din" i hvit farge */
+.heroTitle span {
+  color: #fff;
+}
+
+/* "neste film" vises på egen linje i hvit farge */
+.heroTitle em {
+  display: block;
+  color: #fff;
+  font-style: normal;
+}
+
+/* Undertittel er liten og diskret under hovedtittelen */
+.heroSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  margin: 0 0 2rem;
+}

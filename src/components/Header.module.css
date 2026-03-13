@@ -1,0 +1,26 @@
+
+/* Header er sticky slik at den alltid er synlig når brukeren scroller */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Legger headeren over alt annet innhold */
+  background: rgba(10, 10, 10, 0.92);/* Lett gjennomsiktig bakgrunn */
+  backdrop-filter: blur(12px);/* Gjør innholdet bak headeren uskarp */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  align-items: center;
+}
+/* Logoen bruker Bebas Neue for en filmplakat-estetikk */
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.12em;
+  color: #e5dada;
+  text-decoration: none;
+  transition: opacity 0.2s; /* Myk hover-effekt */
+}
+/* Rød farge på første del av logoen for visuell variasjon */
+.logo:hover { opacity: 0.75; }
+.logoAccent { color: #3721a9; }

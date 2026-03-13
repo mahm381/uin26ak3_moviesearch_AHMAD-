@@ -1,0 +1,49 @@
+/* Global CSS-tilbakestilling og basis-stiler for hele applikasjonen */
+
+/* Universell velger for å bruke box-sizing på alle elementer, inkludert pseudo-elementer */
+/* Dette sikrer konsistente størrelsesberegninger på tvers av appen */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Basis-stiler for html-elementet */
+/* Setter standard skriftstørrelse og jevn rulle-oppførsel for bedre UX */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Body-stiler for hoveddokumentet */
+/* Mørkt tema med tilpasset bakgrunnsfarge, tekstfarge og skriftfamilie */
+/* Bruker DM Sans-skrift for moderne utseende, antialiased for skarp tekst */
+/* Min-høyde sikrer at body dekker full viewport-høyde */
+body {
+  background-color: #0a0a0a; /* Svært mørk grå for filmapp-tema */
+  color: #f0f0f0; /* Lys grå tekst for kontrast */
+  font-family: 'DM Sans', sans-serif; /* Ren, moderne skrift */
+  -webkit-font-smoothing: antialiased; /* Jevnere tekstgjengivelse på webkit-nettlesere */
+  min-height: 100vh; /* Full viewport-høyde */
+}
+
+/* Bilde-stiler for å forhindre overløp og opprettholde aspektforhold */
+/* Max-bredde sikrer at bilder ikke overskrider container-bredde */
+/* Høyde auto opprettholder aspektforhold */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Knapp-stiler for bedre interaktivitet */
+/* Markør peker indikerer klikkbare elementer */
+button {
+  cursor: pointer;
+}
+
+/* Lenke-stiler for å arve farge og fjerne standard understreking */
+/* Dette skaper et renere utseende, spesielt for navigasjonslenker */
+a {
+  color: inherit;
+  text-decoration: none;
+}

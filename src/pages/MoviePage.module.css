@@ -1,0 +1,196 @@
+/* CSS-modul for MoviePage - detaljert filmside */
+
+/* Hoved-container for filmsiden med romslig padding og full skjermhøyde */
+.main {
+  padding: 2rem 2.5rem 5rem; /* Romslig padding rundt innholdet */
+  min-height: calc(100vh - 68px); /* Tar opp resten av skjermen minus header */
+}
+
+/* Status-visning for loading/error tilstander - sentrert på siden */
+.status {
+  display: flex; /* Flexbox for sentrering */
+  flex-direction: column; /* Stable elementer vertikalt */
+  align-items: center; /* Horisontal sentrering */
+  justify-content: center; /* Vertikal sentrering */
+  gap: 1.5rem; /* Mellomrom mellom elementer */
+  min-height: calc(100vh - 68px); /* Full høyde for sentrering */
+}
+
+/* Feilmelding-stiler */
+.errorMsg {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  color: #888; /* Grå farge for feil */
+}
+
+/* Loading-spinner med rotasjonsanimasjon */
+.spinner {
+  display: inline-block; /* Inline-block for animasjon */
+  width: 42px; /* Fast størrelse */
+  height: 42px; /* Kvadratisk for sirkel */
+  border: 3px solid rgba(255,255,255,0.08); /* Gjennomsiktig kant */
+  border-top-color: #e63946; /* Rød topp for rotasjonseffekt */
+  border-radius: 50%; /* Gjør til sirkel */
+  animation: spin 0.8s linear infinite; /* Kontinuerlig rotasjon */
+}
+
+/* Keyframe for spinner-rotasjon */
+@keyframes spin {
+  to { transform: rotate(360deg); } /* Full rotasjon */
+}
+
+/* Tilbake-knapp med diskret stil */
+.backBtn {
+  background: transparent; /* Gjennomsiktig bakgrunn */
+  border: 1px solid rgba(255,255,255,0.15); /* Subtil kant */
+  color: #aaa; /* Grå tekst */
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.85rem; 
+  padding: 0.5rem 1rem; 
+  border-radius: 4px; /* Lett avrundet */
+  cursor: pointer; 
+  margin-bottom: 2.5rem; 
+  transition: color 0.2s, border-color 0.2s; /* Jenvne fargeoverganger */
+}
+
+/* Hover-effekt for tilbake-knappen */
+.backBtn:hover {
+  color: #fff; /* Hvit tekst ved hover */
+  border-color: rgba(255,255,255,0.35); /* Lysere kant */
+}
+
+/* Hoved-layout: to-kolonne grid for plakat og info */
+.detail {
+  display: grid; /* CSS Grid for layout */
+  grid-template-columns: 280px 1fr; /* Fast bredde for plakat, resten for info */
+  gap: 3.5rem; /* Stort mellomrom mellom kolonner */
+  max-width: 1100px; /* Maks bredde for lesbarhet */
+}
+
+/* Mobil-responsivitet: stable kolonner vertikalt på små skjermer */
+@media (max-width: 760px) {
+  .detail {
+    grid-template-columns: 1fr; /* Én kolonne på mobil */
+  }
+}
+
+/* Plakat-container med avrundede hjørner og skygge */
+.posterFigure {
+  margin: 0; /* Ingen margin */
+  border-radius: 6px; /* Avrundede hjørner */
+  overflow: hidden; /* Hindrer overløp */
+  border: 1px solid rgba(255,255,255,0.08); /* Subtil kant */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5); /* Dramatiske skygge */
+}
+
+/* Plakat-bilde fyller hele containeren */
+.posterFigure img {
+  width: 100%; 
+  display: block; /* Fjerner inline-gap */
+}
+
+/* Sjanger-tags som små røde etiketter */
+.genres {
+  list-style: none; /* Fjerner standard punktliste */
+  margin: 0 0 1rem; 
+  padding: 0; /* Ingen padding */
+  display: flex; 
+  flex-wrap: wrap; /* Bryt til neste linje hvis nødvendig */
+  gap: 0.5rem; /* Mellomrom mellom tags */
+}
+
+/* Individuell sjanger-tag styling */
+.genreTag {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.72rem; /* Liten tekst */
+  font-weight: 500; /* Medium vekt */
+  letter-spacing: 0.08em; /* Økt bokstavmellomrom */
+  text-transform: uppercase; /* Store bokstaver */
+  color: #e63946; /* Rød farge */
+  border: 1px solid rgba(230,57,70,0.4); /* Rød kant */
+  padding: 0.25rem 0.65rem; /* Luft rundt teksten */
+  border-radius: 3px; /* Lett avrundet */
+}
+
+/* Filmtittel - stor og dominerende */
+.title {
+  font-family: 'Bebas Neue', sans-serif; /* Spesiell tittel-skrift */
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsiv størrelse */
+  line-height: 1; /* Tett linjehøyde */
+  color: #fff; 
+  margin: 0 0 0.8rem; /* Margin bunn */
+  letter-spacing: 0.02em; /* Lett bokstavmellomrom */
+}
+
+/* Meta-informasjon (år, rating, lengde) på én rad */
+.meta {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.9rem; /* Standard størrelse */
+  color: #777; 
+  margin: 0; 
+  display: flex; /* Flex for horisontal layout */
+  gap: 1rem; /* Mellomrom mellom elementer */
+}
+
+/* Handlingsbeskrivelse (plot) */
+.plot {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 1rem; /* Standard størrelse */
+  color: #bbb; /* Lys grå */
+  line-height: 1.65; /* God lesbarhet */
+  font-weight: 300; /* Lett vekt */
+  margin: 1.5rem 0 2rem; /* Margin rundt */
+  max-width: 620px; /* Maks bredde for lesbarhet */
+}
+
+/* Fakta-seksjon med to-kolonne layout (etikett: verdi) */
+.facts {
+  display: grid; /* CSS Grid */
+  grid-template-columns: auto 1fr; /* Auto for etiketter, resten for verdier */
+  gap: 0.6rem 1.5rem; /* Mellomrom mellom rader og kolonner */
+  margin: 0 0 2.5rem; /* Margin bunn */
+}
+
+/* Etiketter i fakta-seksjonen */
+.facts dt {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.78rem; /* Liten tekst */
+  text-transform: uppercase; /* Store bokstaver */
+  letter-spacing: 0.08em; /* Økt mellomrom */
+  color: #555; /* Mørk grå */
+  font-weight: 500; /* Medium vekt */
+}
+
+/* Verdier i fakta-seksjonen */
+.facts dd {
+  font-family: 'DM Sans', sans-serif; /* Konsistent skrift */
+  font-size: 0.9rem; /* Standard størrelse */
+  color: #ccc; /* Lys grå */
+  margin: 0; /* Ingen margin */
+}
+
+/* Overskrift for ratings-seksjonen */
+.ratingsHeading {
+  font-family: 'Bebas Neue', sans-serif; /* Tittel-skrift */
+  font-size: 1.1rem; /* Litt større */
+  letter-spacing: 0.1em; /* Økt mellomrom */
+  color: #555; /* Mørk grå */
+  margin: 0 0 1rem; /* Margin bunn */
+}
+
+
+/* Vurderinger vises som kort side om side */
+.ratings { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.ratingItem {
+  background: #161616; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 5px; padding: 0.8rem 1.2rem;
+  display: flex; flex-direction: column; gap: 0.3rem; min-width: 130px;
+}
+
+.ratingSource {
+  font-family: 'DM Sans', sans-serif; font-size: 0.72rem; color: #666;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* Selve vurderingsverdien er stor og rød for å skille seg ut */
+.ratingValue { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #e63946; }
